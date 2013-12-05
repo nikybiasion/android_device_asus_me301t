@@ -2,7 +2,6 @@ bin/sensors-config
 bin/glgps
 etc/enctune.conf
 etc/asound.conf
-etc/dbus.conf
 etc/nvaudio_conf_RT5631.xml
 etc/nvaudio_conf_RT5642.xml
 etc/nvaudio_conf_WM8903.xml

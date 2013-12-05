@@ -26,8 +26,7 @@
 /dev/block/mmcblk1p1	/external_sd		auto defaults recoveryonly
 /dev/block/mmcblk0p3	/misc			emmc defaults recoveryonly
 /dev/block/mmcblk0p4	/staging		emmc defaults recoveryonly
-/dev/block/mmcblk0p5	/btmac			auto defaults recoveryonly
-boot			/boot			emmc defaults recoveryonly
-recovery		/recovery		emmc defaults recoveryonly
+/dev/block/mmcblk0p9    /recovery               emmc defaults recoveryonly
+/dev/block/mmcblk0p10	/boot			emmc defaults recoveryonly
 
 

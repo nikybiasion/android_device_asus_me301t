@@ -47,7 +47,7 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE :=
 
 # EGL settings
-BOARD_EGL_CFG := device/asus/me301t/egl.cfg
+BOARD_EGL_CFG := device/asus/me301t/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 
 # Misc display settings

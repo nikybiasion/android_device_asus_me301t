@@ -102,15 +102,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # media files
 PRODUCT_COPY_FILES += \
-    device/asus/me301t/media_codecs.xml:system/etc/media_codecs.xml \
-    device/asus/me301t/media_profiles.xml:system/etc/media_profiles.xml \
-    device/asus/me301t/audio_policy.conf:system/etc/audio_policy.conf
+    device/asus/me301t/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    device/asus/me301t/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    device/asus/me301t/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # gps config files
 PRODUCT_COPY_FILES += \
-    device/asus/me301t/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
-    device/asus/me301t/gps.conf:system/etc/gps.conf \
-    device/asus/me301t/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+    device/asus/me301t/configs/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
+    device/asus/me301t/configs/gps.conf:system/etc/gps.conf \
+    device/asus/me301t/configs/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
+    device/asus/me301t/configs/dbus.conf:system/etc/dbus.conf
 
 # Inherit tablet dalvik settings
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)

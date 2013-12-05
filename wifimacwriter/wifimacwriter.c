@@ -184,6 +184,12 @@ int main(int argc, char *argv[])
             property_set("ro.epad.model_id","04");
             property_set("wifi.module.type","2");
             break;
+        case 11:
+            src = "/system/etc/nvram_murata_4334.txt";
+            err = copy_nvram(src);
+            property_set("ro.epad.model_id","0b");
+            property_set("wifi.module.type","5");
+            break;
         default:
             SLOGE("Unsupported project id");
             err = 1;
