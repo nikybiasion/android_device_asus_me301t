@@ -1,18 +1,18 @@
-on init
+#on init
 
-    export ANDROID_ROOT /system
-    export ANDROID_DATA /data
-    export EXTERNAL_STORAGE /sdcard
+#    export ANDROID_ROOT /system
+#    export ANDROID_DATA /data
+#    export EXTERNAL_STORAGE /sdcard
 
-    mkdir /sdcard
-    mkdir /staging
-    mkdir /system
-    mkdir /data
-    mkdir /cache
+#    mkdir /sdcard
+#    mkdir /staging
+#    mkdir /system
+#    mkdir /data
+#    mkdir /cache
 
-    mount ext4 /dev/block/mmcblk0p2 /cache wait nosuid nodev
-    chown system cache /cache
-    chmod 0770 /cache
+#    mount ext4 /dev/block/mmcblk0p2 /cache wait nosuid nodev
+#    chown system cache /cache
+#    chmod 0770 /cache
 
 on boot
 

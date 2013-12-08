@@ -35,10 +35,10 @@ for FILE in `cat proprietary-files.txt`; do
     fi
     echo "    $OUTDIR/proprietary/$FILE:system/$FILE$LINEEND" >> $MAKEFILE
 done
-echo "    $OUTDIR/proprietary/lib/mpu3050/libmllite.so:system/lib/libmllite.so \\
-    $OUTDIR/proprietary/lib/mpu3050/libmlplatform.so:system/lib/libmlplatform.so \\
-    $OUTDIR/proprietary/lib/mpu3050/libmplmpu.so:system/lib/libmplmpu.so \\
-    $OUTDIR/proprietary/lib/mpu3050/libsensors.mpl3050.so:system/lib/libsensors.mpl3050.so" \
+echo "    $OUTDIR/proprietary/lib/mpu6050/libmllite.so:system/lib/libmllite.so \\
+    $OUTDIR/proprietary/lib/mpu6050/libmlplatform.so:system/lib/libmlplatform.so \\
+    $OUTDIR/proprietary/lib/mpu6050/libmplmpu.so:system/lib/libmplmpu.so \\
+    $OUTDIR/proprietary/lib/mpu6050/libsensors.mpl6050.so:system/lib/libsensors.mpl3050.so" \
 	>> $MAKEFILE
 
 (cat << EOF) > ../../../$OUTDIR/$DEVICE-vendor.mk

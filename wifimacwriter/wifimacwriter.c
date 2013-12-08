@@ -153,7 +153,7 @@ exit:
 int main(int argc, char *argv[])
 {
     FILE *fstream = NULL;
-    char project_id[16] = { 0 };
+    int project_id;
     char *src = NULL;
     int err = 0;
 
@@ -165,26 +165,26 @@ int main(int argc, char *argv[])
         goto exit;
     }
 
-    fscanf(fstream, "%s", project_id);
+    fscanf(fstream, "%x", &project_id);
     fclose(fstream);
 
-    SLOGI("Found project id %s", project_id);
+    SLOGI("Found project id %x", project_id);
 
-    switch(atoi(project_id)) {
-        case 2:
+    switch(project_id) {
+        case 0x02:
             src = "/system/etc/nvram_nh615.txt";
             err = copy_nvram(src);
             property_set("ro.epad.model_id","02");
             property_set("wifi.module.type","1");
             property_set("wlan.driver.p2p","0");
             break;
-        case 4:
+        case 0x04:
             src = "/system/etc/nvram_nh665.txt";
             err = copy_nvram(src);
             property_set("ro.epad.model_id","04");
             property_set("wifi.module.type","2");
             break;
-        case 11:
+        case 0x0b:
             src = "/system/etc/nvram_murata_4334.txt";
             err = copy_nvram(src);
             property_set("ro.epad.model_id","0b");

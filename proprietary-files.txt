@@ -1,3 +1,4 @@
+bin/sensorservice
 bin/sensors-config
 bin/glgps
 etc/enctune.conf
@@ -56,6 +57,11 @@ lib/hw/lights.cardhu.so
 lib/hw/sensors.cardhu.so
 lib/hw/sensors6050.cardhu.so
 lib/hw/sensors_generic.cardhu.so
+lib/libinvensense_hal.so
+lib/libmllite3050.so
+lib/libmllite6050.so
+lib/libmlplatform3050.so
+lib/libmlplatform6050.so
 lib/libmplmpu3050.so
 lib/libmplmpu6050.so
 lib/mpu3050/libmllite.so
@@ -138,11 +144,12 @@ lib/libardrv_dynamic.so
 lib/libcgdrv.so
 
 lib/libsensors.al3010.so
-lib/libsensors.base6050.so
 lib/libsensors.base.so
+lib/libsensors.base6050.so
 lib/libsensors.isl29018.so
 lib/libsensors.isl29028.so
 lib/libsensors.ltr558als.so
+lib/libsensorservice.so
 
 lib/libstagefrighthw.so
 
