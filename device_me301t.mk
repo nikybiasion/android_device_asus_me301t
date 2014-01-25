@@ -26,10 +26,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/fstab.cardhu:root/fstab.cardhu \
     $(LOCAL_PATH)/recovery/init.recovery.cardhu.rc:root/init.recovery.cardhu.rc
 
-# Prebuilt config files
-PRODUCT_COPY_FILES += \
-    system/bluetooth/data/main.nonsmartphone.conf:system/etc/bluetooth/main.conf
-
 # Input device config files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/atmel-maxtouch.idc:system/usr/idc/atmel-maxtouch.idc \
@@ -59,8 +55,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper \
-    $(LOCAL_PATH)/asusdec/com.cyanogenmod.asusdec.xml:system/etc/permissions/com.cyanogenmod.asusdec.xml
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper
 
 # Build characteristics setting 
 PRODUCT_CHARACTERISTICS := tablet
@@ -75,13 +70,15 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs \
     audio.a2dp.default \
-    tinymix \
+    audio.r_submix.default \
     libaudioutils \
     blobpack_tfp \
-    mischelp \
     wifimacwriter \
-    com.cyanogenmod.asusdec \
-    libasusdec_jni
+    mischelp
+
+# Torch
+#PRODUCT_PACKAGES += \
+#    Torch
 
 # Propertys spacific for this device
 PRODUCT_PROPERTY_OVERRIDES := \
@@ -97,21 +94,27 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Prime spacific overrides
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.epad.model=ME301T \
-    ro.product.model=ME301T
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=15 \
+    tf.enable=y \
+    ro.opengles.version=131072 \
+    persist.sys.usb.config=mtp,adb
 
 # media files
 PRODUCT_COPY_FILES += \
-    device/asus/me301t/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    device/asus/me301t/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    device/asus/me301t/configs/audio_policy.conf:system/etc/audio_policy.conf
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # gps config files
 PRODUCT_COPY_FILES += \
-    device/asus/me301t/configs/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
-    device/asus/me301t/configs/gps.conf:system/etc/gps.conf \
-    device/asus/me301t/configs/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
-    device/asus/me301t/configs/dbus.conf:system/etc/dbus.conf
+    $(LOCAL_PATH)/configs/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
+    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/configs/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
+    $(LOCAL_PATH)/configs/dbus.conf:system/etc/dbus.conf \
+    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
 # Inherit tablet dalvik settings
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
+

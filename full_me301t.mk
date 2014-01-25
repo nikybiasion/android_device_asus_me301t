@@ -24,6 +24,6 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := full_me301t
-PRODUCT_DEVICE := ME301T
+PRODUCT_DEVICE := me301t
 PRODUCT_BRAND := Asus
-PRODUCT_MODEL := ME300T
+PRODUCT_MODEL := ASUS Memo Pad Smart 10

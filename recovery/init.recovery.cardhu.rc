@@ -1,18 +1,19 @@
-#on init
+on init
 
 #    export ANDROID_ROOT /system
 #    export ANDROID_DATA /data
 #    export EXTERNAL_STORAGE /sdcard
 
 #    mkdir /sdcard
-#    mkdir /staging
+    mkdir /staging
+    mkdir /btmac
 #    mkdir /system
 #    mkdir /data
 #    mkdir /cache
 
-#    mount ext4 /dev/block/mmcblk0p2 /cache wait nosuid nodev
-#    chown system cache /cache
-#    chmod 0770 /cache
+    mount ext4 /dev/block/mmcblk0p2 /cache wait nosuid nodev
+    chown system cache /cache
+    chmod 0770 /cache
 
 on boot
 
@@ -25,4 +26,4 @@ on property:ro.debuggable=1
     write /sys/class/android_usb/android0/idProduct 4D03
     write /sys/class/android_usb/android0/enable 1
     write /sys/class/android_usb/android0/iManufacturer Asus
-    write /sys/class/android_usb/android0/iProduct Transformer Prime
+    write /sys/class/android_usb/android0/iProduct MeMO Pad Smart 10

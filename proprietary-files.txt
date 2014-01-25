@@ -1,4 +1,3 @@
-bin/sensorservice
 bin/sensors-config
 bin/glgps
 etc/enctune.conf
@@ -149,7 +148,6 @@ lib/libsensors.base6050.so
 lib/libsensors.isl29018.so
 lib/libsensors.isl29028.so
 lib/libsensors.ltr558als.so
-lib/libsensorservice.so
 
 lib/libstagefrighthw.so
 

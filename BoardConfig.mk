@@ -16,6 +16,13 @@
 
 BOARD_USES_GENERIC_AUDIO := false
 USE_CAMERA_STUB := false
+BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
+
+# Camera options
+COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
+
+# Dumpstate
+BOARD_HAL_STATIC_LIBRARIES := libdumpstate.cardhu
 
 # inherit from the proprietary version
 -include vendor/asus/me301t/BoardConfigVendor.mk
@@ -46,9 +53,11 @@ BOARD_KERNEL_CMDLINE :=
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE :=
 
-# EGL settings
+# Video settings
 BOARD_EGL_CFG := device/asus/me301t/configs/egl.cfg
 USE_OPENGL_RENDERER := true
+BOARD_HAVE_PIXEL_FORMAT_INFO := true
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 # Misc display settings
 BOARD_USE_SKIA_LCDTEXT := true
@@ -61,7 +70,7 @@ BOARD_BLUEDROID_VENDOR_CONF := device/asus/me301t/bluetooth/vnd_me301t.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/asus/me301t/bluetooth
 
 # Support for dock battery
-TARGET_HAS_DOCK_BATTERY := true
+TARGET_HAS_DOCK_BATTERY := false
 
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
@@ -73,7 +82,6 @@ BOARD_WLAN_DEVICE           := bcmdhd
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd_34/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA     := "/system/vendor/firmware/bcm4334/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/system/vendor/firmware/bcm4334/fw_bcmdhd_apsta.bin"
-WIFI_DRIVER_FW_PATH_P2P     := "/system/vendor/firmware/bcm4334/fw_bcmdhd_p2p.bin"
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
@@ -95,14 +103,25 @@ TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/asus/me301t/releasetools/me3
 
 # SELinux policies
 BOARD_SEPOLICY_DIRS := \
-    device/asus/me301t/selinux
+    device/asus/me301t/sepolicy
 
 BOARD_SEPOLICY_UNION := \
     file_contexts \
-    file.te \
+    genfs_contexts \
+    app.te \
+    bdaddwriter.te \
     device.te \
-    domain.te
+    drmserver.te \
+    init_shell.te \
+    file.te \
+    rild.te \
+    sensors_config.te \
+    shell.te \
+    surfaceflinger.te \
+    system.te \
+    zygote.te
 
+# CMHW
 BOARD_HARDWARE_CLASS := device/asus/me301t/cmhw/
 
 # Recovery Options
@@ -112,4 +131,3 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_SDCARD_INTERNAL := true
 TARGET_RECOVERY_FSTAB := device/asus/me301t/ramdisk/fstab.cardhu
 RECOVERY_FSTAB_VERSION := 2
-BOARD_RECOVERY_SWIPE := true
