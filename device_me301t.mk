@@ -72,6 +72,7 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.r_submix.default \
     libaudioutils \
+    libinvesense \
     blobpack_tfp \
     wifimacwriter \
     mischelp

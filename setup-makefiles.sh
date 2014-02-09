@@ -38,7 +38,8 @@ done
 echo "    $OUTDIR/proprietary/lib/mpu6050/libmllite.so:system/lib/libmllite.so \\
     $OUTDIR/proprietary/lib/mpu6050/libmlplatform.so:system/lib/libmlplatform.so \\
     $OUTDIR/proprietary/lib/mpu6050/libmplmpu.so:system/lib/libmplmpu.so \\
-    $OUTDIR/proprietary/lib/mpu6050/libsensors.mpl6050.so:system/lib/libsensors.mpl3050.so" \
+    $OUTDIR/proprietary/lib/mpu6050/libsensors.mpl6050.so:system/lib/libsensors.mpl6050.so \\
+    $OUTDIR/proprietary/lib/hw/sensors6050.cardhu.so:system/lib/hw/sensors.cardhu.so" \
 	>> $MAKEFILE
 
 (cat << EOF) > ../../../$OUTDIR/$DEVICE-vendor.mk
