@@ -189,6 +189,7 @@ int main(int argc, char *argv[])
             err = copy_nvram(src);
             property_set("ro.epad.model_id","0b");
             property_set("wifi.module.type","5");
+            property_set("wlan.driver.p2p","0");
             break;
         default:
             SLOGE("Unsupported project id");
