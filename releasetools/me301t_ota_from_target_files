@@ -99,7 +99,10 @@ OPTIONS.backuptool = False
 OPTIONS.override_device = 'auto'
 
 LOCAL_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
-DEV_OUT_DIR = os.path.abspath(os.path.join(LOCAL_DIR, '../../../out/target/product/me301t/'))
+if os.environ.get('OUT_DIR') is None:
+  DEV_OUT_DIR = os.path.abspath(os.path.join(LOCAL_DIR, '../../../out/target/product/me301t/'))
+else:
+  DEV_OUT_DIR = os.path.join(os.environ.get('OUT_DIR'), 'target/product/me301t/')
 
 def MostPopularKey(d, default):
   """Given a dict, return the key corresponding to the largest
