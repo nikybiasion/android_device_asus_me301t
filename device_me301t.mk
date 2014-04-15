@@ -93,14 +93,6 @@ PRODUCT_PROPERTY_OVERRIDES := \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.tegra.nvmmlite=1
 
-# Prime spacific overrides
-PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=15 \
-    tf.enable=y \
-    ro.opengles.version=131072 \
-    persist.sys.usb.config=mtp,adb
-
 # media files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
