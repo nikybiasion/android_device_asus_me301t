@@ -35,6 +35,7 @@ TARGET_BOOTLOADER_BOARD_NAME := cardhu
 TARGET_NO_BOOTLOADER := true
 
 TARGET_BOARD_PLATFORM := tegra
+TARGET_TEGRA_VERSION := t30
 
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
@@ -92,7 +93,7 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 
 # Try to build the kernel
-TARGET_KERNEL_SOURCE := kernel/asus/me301t
+TARGET_KERNEL_SOURCE := kernel/asus/me301t-tweak
 TARGET_KERNEL_CONFIG := me301t_cm10_defconfig
 
 # Prebuilt Kernel Fallback
@@ -131,3 +132,6 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_SDCARD_INTERNAL := true
 TARGET_RECOVERY_FSTAB := device/asus/me301t/ramdisk/fstab.cardhu
 RECOVERY_FSTAB_VERSION := 2
+BOARD_RECOVERY_SWIPE := true
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
+
